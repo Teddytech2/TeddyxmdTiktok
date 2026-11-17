@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08090d"><title>TEDDY-XMD | TikTok Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main id="authView" class="auth-shell">
+    <section class="brand-panel">
+      <div class="brand"><span class="brand-mark">T</span><span>TEDDY<span class="accent">-XMD</span></span></div>
+      <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> SOCIAL AUTOMATION CONSOLE</div>
+        <h1>Your socials.<br><span>One command.</span></h1>
+        <p>A private control center for your TikTok workspace and saved preferences.</p>
+      </div>
+      <div class="panel-foot"><span>SECURE ACCOUNT WORKSPACE</span><span>v1.0.0</span></div>
+    </section>
+    <section class="auth-card">
+      <div class="mobile-brand brand"><span class="brand-mark">T</span><span>TEDDY<span class="accent">-XMD</span></span></div>
+      <div class="auth-heading"><div class="eyebrow">WELCOME TO THE CONSOLE</div><h2 id="authTitle">Sign in</h2><p id="authSubtitle">Access your automation workspace.</p></div>
+      <div class="tabs"><button class="tab active" id="loginTab">Sign in</button><button class="tab" id="registerTab">Create account</button></div>
+      <form id="authForm">
+        <label>Email address</label><input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label>Password</label><input id="password" type="password" placeholder="At least 10 characters" autocomplete="current-password" required>
+        <button class="primary-btn" id="authSubmit" type="submit">Sign in <span>↗</span></button>
+      </form>
+      <div class="message" id="authMessage" role="status"></div>
+      <p class="legal">By continuing, you agree to use this platform responsibly and in accordance with TikTok's terms.</p>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">T</span><span>TEDDY<span class="accent">-XMD</span></span></div>
+      <div class="side-label">WORKSPACE</div><button class="nav-item active"><span>◫</span> Overview</button>
+      <button class="nav-item" id="accountsNav"><span>◎</span> TikTok accounts</button>
+      <div class="sidebar-bottom"><div class="secure-note"><span class="green-dot"></span><div><b>Workspace protected</b><small>Encrypted session cookie</small></div></div><button class="logout-btn" id="logoutBtn">↪ &nbsp; Sign out</button></div>
+    </aside>
+    <section class="main-content">
+      <header class="topbar"><div><div class="eyebrow">TEDDY-XMD / OVERVIEW</div><h2>Dashboard</h2></div><div class="user-chip"><span class="avatar">T</span><span id="userEmail">Account</span><span class="role-pill" id="userRole">USER</span></div></header>
+      <div class="welcome-row"><div><h1>Welcome back<span class="accent">.</span></h1><p>Your workspace is ready. Preference switches save settings only.</p></div><div class="status-pill"><span class="pulse"></span> PLATFORM ONLINE</div></div>
+      <section class="connect-card" id="accountSection">
+        <div class="connect-icon">◎</div><div class="connect-copy"><div class="eyebrow">ACCOUNT CONNECTION</div><h3>Connect your TikTok account</h3><p id="connectText">This dashboard can save your preferences, but TikTok does not expose official Story-view or Story-reaction endpoints for this server to run.</p></div>
+        <button class="outline-btn" id="connectBtn">Connection setup <span>↗</span></button>
+      </section>
+      <div class="section-heading"><div><div class="eyebrow">AUTOMATION CONTROLS</div><h3>Quick controls</h3></div><span class="muted-label">SAVED SETTINGS · NO TIKTOK ACTIONS</span></div>
+      <section class="feature-grid">
+        <article class="feature-card"><div class="feature-top"><div class="feature-icon">◉</div><span class="coming">SAVED SETTING ONLY</span></div><h3>Auto Story View</h3><p>Saves your preference only. It cannot automatically detect or view new Stories.</p><div class="feature-bottom"><span class="feature-state" id="storyViewState">Off</span><label class="switch"><input type="checkbox" data-pref="autoStoryView" disabled><span></span></label></div></article>
+        <article class="feature-card"><div class="feature-top"><div class="feature-icon">♡</div><span class="coming">SAVED SETTING ONLY</span></div><h3>Auto Story React</h3><p>Saves your preference only. It cannot send automatic Story reactions.</p><div class="feature-bottom"><span class="feature-state" id="storyReactState">Off</span><label class="switch"><input type="checkbox" data-pref="autoStoryReact" disabled><span></span></label></div></article>
+        <article class="feature-card"><div class="feature-top"><div class="feature-icon">♥</div><span class="coming">SAVED SETTING ONLY</span></div><h3>Auto Like</h3><p>Saves your preference only. No automatic likes are sent by this dashboard.</p><div class="feature-bottom"><span class="feature-state" id="autoLikeState">Off</span><label class="switch"><input type="checkbox" data-pref="autoLike" disabled><span></span></label></div></article>
+      </section>
+      <div class="notice"><span class="notice-icon">i</span><div><b>What do these switches do?</b><p>They save your preferences in TEDDY-XMD. They do not view Stories or send reactions. TikTok’s official developer APIs currently cover profile and video display, but do not document Story viewing or Story reactions. A Heroku server cannot operate the TikTok app on your phone in the background.</p></div></div>
+      <section class="bottom-grid"><article class="mini-card"><div class="eyebrow">ACCOUNT STATUS</div><h3 id="accountStatus">Not connected</h3><p>TikTok account linking is not enabled in this build. Do not enter your TikTok password or paste session cookies into this website.</p></article><article class="mini-card"><div class="eyebrow">DATABASE</div><h3><span class="green-dot"></span> MongoDB ready</h3><p>Your website profile and preferences are stored in your own database record.</p></article></section>
+      <footer>© 2026 TEDDY-XMD <span>PREFERENCES DASHBOARD</span></footer>
+    </section>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body></html>
